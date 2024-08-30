@@ -2,32 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: #ffffff;
+    --foreground: #0A0A0A;
+    --primary: #7000ff;
+    --secondary: #00f261;
+    --accent: #f75d00;
+    --neutral: #0a0100;
+    --base-100: #fffcff;
+    --info: #007ebd;
+    --success: #2aff87;
+    --warning: #ff8d00;
+    --error: #ff617b;
+  }
+  
+  .dark {
+    --background: #030303;
+    --foreground: #ffffff;
+    --primary: #ff00ff;
+    --secondary: #61f200;
+    --accent: #ff7d00;
+    --neutral: #101010;
+    --base-100: #1a1a1a;
+    --info: #006dbd;
+    --success: #87ff2a;
+    --warning: #ff7d00;
+    --error: #ff617b;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
+  body {
+    @apply bg-background text-foreground
+  }
+  
 }
+.streak-calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+  }
+  
+  .calendar-day {
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .calendar-day.active {
+    background-color: #4CAF50;
+    color: #fff;
+  }
