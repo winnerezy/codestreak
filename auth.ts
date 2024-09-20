@@ -1,6 +1,5 @@
 import NextAuth from "next-auth"
 import github from "next-auth/providers/github"
-import twitter from "next-auth/providers/twitter"
 import { prisma } from "./utils/prisma"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -8,11 +7,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     github({
         clientId: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      }),
-      twitter({
-        clientId: process.env.TWITTER_CLIENT_ID,
-        clientSecret: process.env.TWITTER_CLIENT_SECRET
-    })
+      })
   ],
   secret: process.env.AUTH_SECRET!,
   callbacks: {

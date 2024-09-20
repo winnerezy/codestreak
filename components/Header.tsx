@@ -1,16 +1,10 @@
-import { getCurrentUser } from "@/utils/actions";
-import UserAccount from "@/components/UserAccount"
-const Header = async () => {
+const Header = () => {
+  return(
+    <header className="border-b-2 flex w-full h-14 p-2 items-center justify-between bg-secondary">
+        <h2 className="text-3xl font-semibold">CodeSnip</h2>
 
-  const user = await getCurrentUser()
-
-  return (
-    <header className="w-full h-12 py-2 px-4 flex items-center justify-between">
-      <h2 className="text-2xl font-bold">CodeStreak</h2>
-      <UserAccount user={user}/>
-     
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
